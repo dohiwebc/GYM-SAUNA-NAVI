@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM & SAUNA NAVI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Teko:wght@600;700&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>GYM&SAUNA NAVI</h1>
+            <p class="subtitle">混雑予想とアドバイス</p>
+        </header>
+
+        <section id="now-status">
+            <div id="gym-tiles-container" class="gym-tiles-grid"></div>
+        </section>
+
+        <section id="advice-container">
+          <div class="advice-card sauna-advice">
+                <div class="advice-label">SAUNA</div>
+                <div id="sauna-advice-text">店舗を選択してください</div>
+            </div>
+            <div class="advice-card gym-advice">
+                <div class="advice-label">GYM</div>
+                <div id="gym-advice-text">店舗を選択してください</div>
+            </div>
+            
+        </section>
+
+        <section id="record-form">
+            <h3>LOG DATA</h3>
+            <div class="form-group-vertical">
+                <div class="input-wrapper">
+                    <label>店舗選択</label>
+                    <select id="record-gym-select"></select>
+                </div>
+                <div class="form-row">
+                    <div class="input-wrapper">
+                        <label>日付</label>
+                        <div class="date-input-container">
+                            <input type="date" id="input-date">
+                            <span id="day-display"></span>
+                        </div>
+                    </div>
+                    <div class="input-wrapper">
+                        <label>時間</label>
+                        <select id="input-time"></select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rating-container" style="margin-top: 20px;">
+                <label style="font-size: 0.75rem; font-weight: bold; color: var(--text-secondary);">混雑状況を報告</label>
+                <div class="rating-buttons">
+                    <div class="rating-item">
+                        <input type="radio" name="level" value="1" id="l1">
+                        <label for="l1">1</label>
+                        <span>貸切</span>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" name="level" value="2" id="l2">
+                        <label for="l2">2</label>
+                        <span>空き</span>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" name="level" value="3" id="l3" checked>
+                        <label for="l3">3</label>
+                        <span>普通</span>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" name="level" value="4" id="l4">
+                        <label for="l4">4</label>
+                        <span>混雑</span>
+                    </div>
+                    <div class="rating-item">
+                        <input type="radio" name="level" value="5" id="l5">
+                        <label for="l5">5</label>
+                        <span>満員</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="save-btn">データを保存する</button>
+        </section>
+
+        <section id="admin-section">
+            <button id="toggle-admin" class="sub-btn">＋ 設定・店舗管理</button>
+            <div id="admin-panel" class="hidden">
+                <div class="add-gym-form">
+                    <input type="text" id="new-gym-name" placeholder="店舗名を入力">
+                    <select id="new-gym-category">
+                        <option value="ジム">ジム</option>
+                        <option value="サウナ">サウナ</option>
+                    </select>
+                    <button id="add-gym-btn">新規追加</button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+        <button id="toggle-all" class="outline-btn">週間データを表示</button>
+        
+        <section id="all-data" class="hidden">
+            <div class="heatmap-header">
+                <div id="heatmap-title" style="font-weight:bold; margin-bottom:10px; text-align:center; color:#1e293b;">WEEKLY HEATMAP</div>
+                <div class="input-wrapper" style="max-width: 250px; margin: 0 auto 15px;">
+                    <select id="heatmap-gym-select"></select>
+                </div>
+            </div>
+            <div class="heatmap-scroll-area">
+                <div class="heatmap-wrapper">
+                    <div id="time-labels"></div>
+                    <div id="heatmap"></div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 LOG SYSTEM</p>
+        </footer>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>
